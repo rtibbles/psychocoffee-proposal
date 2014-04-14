@@ -1,0 +1,112 @@
+\documentclass[12pt,a4paper,titlepage]{scrreprt}
+\usepackage{url}
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb}
+\usepackage{graphics,graphicx,wrapfig,float,epsfig,subfigure,sidecap}
+\usepackage{url}
+\usepackage{apacite}
+\usepackage{setspace}
+\usepackage[margin=0.45in]{geometry}
+
+\usepackage{color}
+
+\begin{document}
+
+    \title{PsychoCoffee}
+    \subtitle{Open, Robust, Experimenter-Friendly Data Collection via the World Wide Web}
+    \date{\small{{rtibbles}@ucsd.edu}}
+    \author{{\bf Richard Tibbles} \\ \\
+                \small{University of California, San Diego} \\
+                \small{Department of Cognitive Science} \\
+                \small{Center for Human Development}}
+    \maketitle
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introduction}
+    
+    The basic question of the Psychological Sciences is to understand the function and instantiation of the human mind. The investigation of such phenomena thus far in the history of Science has been highly focused on the minds of individuals in very particular social contexts. In contrast to the physical sciences, where the particular spatial location of experiments is assumed to have no bearing on the fundamental laws being investigated (and more strongly, were it to do so, these would not be 'fundamental' laws as we understand them), it is at the very least an open question in psychological sciences the extent to which the social context affects the phenomena under investigation. In addition to social context, the population of minds in which psychological investigations are generally undertaken is also considerably limited as compared to the broad swathe of humanity.
+    In addition to a bias in the sampling of minds, and the contexts of minds, there is insufficient replication of positive results in the literature. Replication is a time consuming process, requiring an experimenter to recreate an experiment conducted by a colleague. However, if there is no obvious extension of the experiment, the incentive for this replication will be very low, as no original results can be further tested in the replication of an older experiment. In addition, the original positive result may be very closely tied to certain features of the experimental setup - while it is desirable that results be robustly replicable, it is also of interest to discover the relevant reasons why results do not replicate. Finally, direct replication, whereby the repetition of the experiment in all relevant details is undertaken in a different laboratory, by different researchers, is incredibly rarely done, and is not incentivized.
+    In order to provide a tool to contribute one part of a range of possible solutions to the above problems, a framework for online experimental testing is proposed. An online experimental system has the advantage of being able to reach a wider range of potential participants, allow for the gathering of larger datasets with lower experimenter effort, and the rapid replication of existing experiments, through the sharing of experimental materials. While similar systems are already in development and use, they lack several key features to help tackle the problems outlined above. To this end, the proposed system, PsychoCoffee, will be: open source, integrate features and defaults for open sharing and alteration of experimental code, and scaffold creation of experiments with a graphical user interface.
+    The system will be open source in order to allow for inspection of the source code to verify, modify, and enhance the system for particular experimental needs. Developing software as open source is in line with the Scientific demand for clarity and disclosure of experimental methods. Without the ability to inspect the source code of experiments and the experimental framework, claims about the system are not amenable to independent verification.
+    Leveraging existing mechanisms for sharing and distributing code will allow experimenters to rapidly replicate, modify, and extend colleague's experiments, in order to test the range of replication of experiments, and to investigate additional aspects of phenomena. Finally, the use of a graphical user interface to define the elements and control flow of an experiment will allow broader and more efficient participation in experimental design and creation, in a time when programming is still a much sought after skill in Social Science laboratories.
+
+\newpage
+
+\chapter{Related Work}
+\section{Open Science}
+\section{Replicability and Generalizability}
+Although there have been concerns for nearly forty years\cite{greenwald_consequences_1975} about the truth and generalizability of published research in Psychology, the coining of the \textit{replicability crisis}\cite{pashler_editors_2012} seems to have catalyzed action on behalf of at least some actors in the field. The root of much of the current concern was first named as the file drawer problem in the last century\cite{rosenthal_file_1979}. The initial problem is simply articulated - in the extreme case, the bias for publishing positive results means that at an alpha criterion for significance, a researcher's file drawer could contain nineteen failed experiments that failed to show statistical significance for every one experiment that showed statistical significance, with the net result that the evidence for the effect supported by the one published study is no better than chance. To compound the file drawer effect, verification of positive results is frequently via conceptual, rather than direct replication\cite{pashler_is_2012}. This has the result that verifications can be taken as evidentially supportive of the original publication, whereas falsifications can be dismissed as operationally different, and hence uninformative to the evidential basis of the original result. In addition, surveys of the literature have found that very few direct replications of positive research findings occur\cite{makel_replications_2012} - in this way, a result that, by chance, was deemed significant can be the basis for bootstrapping of an entire research program through conceptual replications based off a single finding that may lack evidential basis.
+
+\subsection{Endemic Lack of Replication}
+\subsection{Meta-Analyses of Reported P-Values}
+These issues are further compounded by questionable research practices\cite{john_measuring_2012}, such as unreported exploratory analyses (doing analyses until a significant p-value is found, but only reporting the significant analyses), stopping the experiment when a significant result is found, and removing outliers after initial analyses have been run. These strategies will all tend to exacerbate the file drawer problem, creating even more studies that are likely to be false positives\cite{bakker_rules_2012}. Fortunately, there is some hope for detecting these methodological biases through rigourous meta-analysis, and also through statistical tests of the distribution of p-values, in an attempt to highlight possible instances of \textit{p-hacking}\cite{simonsohn_p-curve:_2013}.
+\subsection{Generalizability of Results}
+\begin{quote}Some say that psychological science is based on research with rats, the mentally disturbed, and college students. We study rats because they can be controlled, the disturbed because they need help, and college students because they are available.\cite{birnbaum_psychological_2000}
+\end{quote}
+While it is obvious to practising researchers that most participant pools are composed of very limited populations\cite{buchanan_using_1999}\cite{birnbaum_psychological_2000}\cite{kraut_psychological_2004}\cite{birnbaum_human_2004}\cite{buhrmester_amazons_2011}, the classification of most participants as Western, Educated, Industrialised, Rich, from Developed countries (or WEIRD), and the highlighting of disparities in performance on canonical psychological tasks between these participants and a broader selection of humanity \cite{henrich_beyond_2010} has helped to bring the limitations of these populations into sharp focus.
+\subsection{Challenges to Replication and Generalization}
+However, while statistical meta-analytical techniques can indicate likely instances of methodological issues, to verify or falsify reported effects, both a guarantee of confirmatory research, and direct replication are needed. Several strategies for this have been suggested. Scientists could be incentivized scientists to replicate studies, by offering joint publication with the original study\cite{koole_rewarding_2012}, creating metrics and crowdsourcing replication\cite{nosek_scientific_2012}, creating an open collaborative framework for sharing replication efforts, materials, and results\cite{collaboration_open_2012}, and using undergraduate research projects (both independent research projects, and in project based learning classes) as a means of conducting direct replication\cite{grahe_harnessing_2012}\cite{frank_teaching_2012}. Additionally, the open sharing of data, materials, and workflow\cite{giner-sorolla_science_2012}\cite{nosek_scientific_2012}\cite{miguel_promoting_2014} are all highlighted as ways to open up both the experimental process and experimental results to proper scrutiny and replication. Effort to replicate is also a significant barrier, which the use of online data collection can help to overcome\cite{grahe_harnessing_2012}.
+\section{Online Experiments}
+One way to broaden the reach of psychological research beyond the participants immediately available in the vicinity of the laboratory is to use Internet based studies to recruit a far broader and heterogeneous population. In early web studies, the lack of widespread Internet penetration led to concerns of repeating the same population difficulties shown in undergraduate recruitment - however, in a range of areas of study, from decision making to social psychology, experiments successfully replicated the results of laboratory based studies, while still attracting a more diverse sample than would ordinarily be the case\cite{krantz_comparing_1997}\cite{buchanan_using_1999}\cite{birnbaum_decision_2000}\cite{mcgraw_integrity_2000}\cite{gosling_should_2004}\cite{ritter_internet_2004}. Further, the development of this new methodology quickly led to the formulation of best practices to overcome some of the perceived issues of confidentiality, reduced experimental control, multiple submissions, incomplete submissions, dropout, and misunderstanding instructions\cite{reips_web_2000}\cite{reips_standards_2002}\cite{birnbaum_human_2004}. While it is not always the case that study materials used in laboratory experiments can be used identically online and yield the same results\cite{buchanan_nonequivalence_2005}, the web provides an intermediary point between the laboratory and field studies to test the generalizability of experimental procedures and findings to less controlled contexts. It can also reduce experimenter bias and demand characteristics, and allow for experimental measures between subjects of motivational effects of studies through comparisons of drop out rate\cite{reips_web_2000}, which is less measurable in laboratory experiments due to the pressure from the social context of the experiment, and frequently the desire for class credit.
+\subsection{Current Applications}
+\subsection{Current Practices}
+Many participants for online experiments are now paid, similarly to many laboratory studies, particularly through the use of crowdsourced labour platforms such as Amazon's Mechanical Turk\cite{buhrmester_amazons_2011}\cite{rand_promise_2012}\cite{crump_evaluating_2013}. However, other work has relied entirely on voluntary participation, with significant boosts to participation coming from media coverage (and in the case of data gathered through the BBC UK Lab, through cooperation with the BBC television show \textit{Bang Goes the Theory})\cite{owen_putting_2010}\cite{germine_is_2012}\cite{halberda_number_2012}.
+COGS107C/KA Lite
+\subsection{Challenges for Online Experiments}
+Very short stimulus presentation times, on the order of 64ms and below, have not been able to be used so far in web based experiments\cite{crump_evaluating_2013}. In addition to thresholding the lower limits for length of stimulus presentation, it is also important to understand the characteristics of different participant devices, and their accuracy with regards reaction time measurements.
+\section{Experimental Implementation}
+\subsection{Current Practices}
+The proposed platform, PsychoCoffee, is modelled after another success in open source software for Psychological research - PsychoPy\cite{peirce_psychopypsychophysics_2007}\cite{peirce_generating_2008}. PsychoPy is a platform for generating Psychophysical and Psychological experiments. By leveraging a powerful, multipurpose, cross-platform language like Python, PsychoPy allows researchers to develop code that will run in the same way across multiple computers and operating systems. In addition, because the framework itself is Open Source, more technically minded experimenters are able to add new features that they need for their experiments. Using this framework, PsychoPy has achieved the difficult dual task of creating a stable but customizable platform. In addition, due to the focus of the Python language itself on readability of code\cite{_python_????}, experiments coded using PsychoPy are amenable to inspection by other scientists, seeking either to verify, replicate, or extend research findings. As such, PsychoPy goes a long way in assisting Psychology in creating open experiments to increase scrutiny and replication, also, due to the cross-platform (and free) nature of the underlying language, the bar for replication is lowered considerably.
+\subsection{Challenges for Implementing Experiments}
+Issues still remain, however, as the extra step of sharing experimental code, no matter how readable it naturally is, remains a barrier to openness. In addition, the difficulty of replication in participant recruitment, use of laboratory space, and personnel remains a barrier. To address this, PsychoCoffee will use coffeescript, a readable Python-inspired form of the Javascript programming language to maintain the accessibility of PsychoPy, while creating an experimental platform designed for the Web.
+While many Psychology laboratories are already using the Web for experiments, and have created their own frameworks within which to create their experiments\cite{krantz_comparing_1997}\cite{germine_is_2012}, no platform is yet available for general purpose programming of online experiments. One program in development is Cognilab\cite{_cognilab_????}, run by a private company startup, with no obvious plans to open source their software. Success of this software would do little to open up the processes of scientific experiments to scrutiny and inspection as required by the foregoing concerns about the state of Psychology.
+\section{Supporting Programming}
+SCRATCH ETC.
+\chapter{Research Questions}
+\begin{itemize}
+\item How to design a system to support rapid prototyping and development of psychological tasks?
+\item How to design an experimental platform to be scalable, robust, and collect reliable experimental data across a range of user devices?
+\item How to design a system that encourages open sharing of experimental code and materials, to allow for rapid replication and extension?
+\item How precise and accurate can web based sensing deployed through arbitrary devices be?
+\item Can the sensor characteristics of such a system be remotely determined through automated tests and user input when compared with data collected in more controlled environments?
+\end{itemize}
+\chapter{Proposed Research}
+\section{System Design}
+\subsection{Open Source}
+Both system itself, and experimental materials
+
+Finally, by using the existing code versioning tool, git\cite{_git_????}, and the open source code sharing platform github\cite{_github_????}, the software will allow the quick sharing, modification, and extension of experiments created within it. In this way, experimental code will be freely shared, modifiable, and for the differences between different versions of experiments readily inspectable using existing tools.
+\subsection{Extensible Framework}
+The platform would use a modular approach to stimuli presentation and response capturing. By defining programmatic base classes of stimulus and response, the software can be incrementally developed by the original developers, and later by the broader community, to suit varied experimental needs. 
+\subsection{GUI Based Programming}
+In addition to creating an open framework, the platform will have a graphical user interface for experiment design, modelled after the PsychoPy Builder (a timeline based view of experimental components that can be manipulated without any knowledge of the underlying Python code), and the MIT Scratch programming language\cite{resnick_scratch:_2009}. This will help to lower a further barrier to replication, allowing the platform to be used in undergraduate replications of existing research findings \cite{frank_teaching_2012}, and also letting those with less programming experience have a scaffolded programming experience to create the flow of their experiments.
+\section{Problem Finding}
+\subsection{User Surveys}
+\subsection{Participant Observations}
+\section{Prototyping}
+\subsection{Beta Testing with Limited Capabilities}
+\subsection{Activity Tracking and User Feedback}
+\section{Evaluation}
+\subsection{Automated Testing}
+\subsection{Human Testing}
+Even though a significant advantage of online experiments is the ability to find signal in noisier data due to the far higher number of participants\cite{birnbaum_web-based_2001}, it is important to understand the performance characteristics of a web based system, in order to place limits on the kind of effects that can be measured. 
+Stimulus presentation sensitivity can be measured by a very simple procedure whereby increasing stimulus presentation durations are presented to the participant, on either the left or the right of the screen - the participant will then press either left or right when they see the stimulus. By finding performance at chance, the threshold of visibility of stimulus duration will be determined. These thresholds can then be compared to the device characteristics recorded by the web browers, which include browser version and operating system, allowing information to be gathered about the performance characteristics of certain kinds of devices.
+Reaction time sensitivity will be ascertained by a two step process. Firstly, automated benchmarking of system responsiveness can calibrate how quickly certain events in the browser are rendered, using an automated control frame to register events in the browser, such as in an automated Web testing framework like Selenium\cite{_selenium_????}. Secondly, user responses can be recorded during reaction time tasks. By aggregating over users with similar hardware set ups, differences in ranges of response between different hardware configurations can give relative error comparisons for different hardware set ups. Finally, by comparison to more carefully controlled tests in the laboratory, more accurate mean user reaction time profiles on the tasks can be determined, and comparisons made between these and the remote data.
+\subsection{Laboratory Comparisons}
+\chapter{Contribution}
+\begin{itemize}
+\item Provide tools to allow psychological science to collect data at scale
+\item Provide tools that recognize the needs of psychological scientists to rapidly generate and deploy experiments
+\item Provide tools that allow for quick replication and extension of existing experiments, in order to place psychological science on a surer empirical footing
+\item Provide an open source tool that is open to inspection by peers, modifiable, and freely available
+\end{itemize}
+      
+    % bib stuff
+    \nocite{*}
+    \bibliographystyle{apacite}
+    \bibliography{OnlineExperiments}{}
+\end{document}
